@@ -22,8 +22,8 @@ jobs:
       
     - name: 🔨 Build Project
       run: |
-        npm install cd /home2/industri/inovia_app
-        npm run build cd /home2/industri/inovia_app
+        npm install /home2/industri/inovia_app
+        npm run build /home2/industri/inovia_app
     
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
