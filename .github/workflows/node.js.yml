@@ -20,7 +20,7 @@ jobs:
       with:
         node-version: '16'
       
-    - name: 🔨 Build Project
+    - name: 🔨 Build Project 
       run: |
         npm install /home2/industri/inovia_app
         npm run build /home2/industri/inovia_app
