@@ -21,11 +21,11 @@ jobs:
         node-version: '16'
       
     - name: 🔨 Build Project 
-      run: | 
-       npm install
-        npm run build 
-                with:
-        cd: '/home2/industri/inovia_app/package.json'
+   
+    - run: npm ci
+    - run: npm run build --if-present
+    - run: npm test
+    
      
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
