@@ -22,8 +22,10 @@ jobs:
       
     - name: 🔨 Build Project 
       run: | 
-       npm ci --prefer-offline --no-audit
+       npm install
         npm run build 
+          with:
+        work-directory: '/home2/industri/inovia_app/package.json'
      
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
