@@ -21,9 +21,10 @@ jobs:
         node-version: '16'
       
     - name: 🔨 Build Project
-      run: |
-        npm install
-        npm run build
+      run: |  
+
+        npm install /home2/industri/inovia_app/package.jon
+        npm run build /home2/industri/inovia_app/package.jon
     
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
