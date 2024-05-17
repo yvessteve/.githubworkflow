@@ -22,8 +22,8 @@ jobs:
       
     - name: 🔨 Build Project 
       run: | 
-        npm install 
-        npm run build 
+        npm install /home2/industri/inovia_app/sequelize-example-api/package.json
+        npm run build /home2/industri/inovia_app/sequelize-example-api/package.json
      
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
