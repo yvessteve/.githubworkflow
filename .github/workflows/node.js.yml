@@ -1,31 +1,35 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 
-name: Node.js CI
-
-on:
+on: 
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches:
+      - main
+name: 🚀 Deploy website on push
 
 jobs:
-  build:
-
+  web-deploy:
+    name: 🎉 Deploy
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [14.x, 16.x, 10.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
     steps:
-    - uses: actions/checkout@v4
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v3
+
+    - name: Use Node.js 16
+      uses: actions/setup-node@v2
       with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
+        node-version: '16'
+      
+    - name: 🔨 Build Project
+      run: |
+        npm install cd /home2/industri/inovia_app
+        npm run build cd /home2/industri/inovia_app
+    
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ${{ secrets.app_deploy }}
+        username: ${{ secrets.app_deploy }}
+        password: ${{ secrets.app_deploy }}
+        protocol: ${{ secrets.app_deploy }}
+        local-dir: ./build/
