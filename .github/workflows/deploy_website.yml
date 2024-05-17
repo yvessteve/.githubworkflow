@@ -28,8 +28,8 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
-        server: ${{ secrets.cloud209.cloudwebhosting.com }}
-        username: ${{ secrets.industri }}
-        password: ${{ secrets.CblfEhW.e;H% }}
-        protocol: ${{ secrets.HTTP/1.1 }}
+        server: ${{ secrets.app_deploy }}
+        username: ${{ secrets.app_deploy }}
+        password: ${{ secrets.app_deploy}}
+        protocol: ${{ secrets.app_deploy}}
         local-dir: ./build/
